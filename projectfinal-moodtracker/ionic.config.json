@@ -1,0 +1,13 @@
+{
+  "name": "669final",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+    }
+  ]
+}

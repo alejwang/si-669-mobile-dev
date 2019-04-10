@@ -1,0 +1,35 @@
+<!-- Refer: https://www.youtube.com/watch?v=9VX-h5JS35A -->
+
+<ion-content no-padding>
+  <h2> Welcome to <br> the world of moods</h2>
+  <img class="mood-img" src="/assets/imgs/happy.png" />
+
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email" name="email" placeholder="john@doe.com"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password" name="password" placeholder="********"></ion-input>
+    </ion-item>
+
+    <!--<ion-item>-->
+      <!--<ion-label stacked>Name</ion-label>-->
+      <!--<ion-input type="text" [(ngModel)]="displayName" name="displayName" placeholder="John Doe"></ion-input>-->
+    <!--</ion-item>-->
+
+  </ion-list>
+
+  <div padding text-center>
+    <button ion-button color="grey" round (click)="doSignup()" >Signup</button>
+  </div>
+
+  <div padding text-center class="signup">
+    <button ion-button color="gray" block clear (click)="redirectToLogin()">I have an account</button>
+  </div>
+
+</ion-content>
+
+

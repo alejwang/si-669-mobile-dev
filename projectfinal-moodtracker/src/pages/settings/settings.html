@@ -1,0 +1,75 @@
+<!--
+  Generated template for the SettingsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+  <ion-list-header>
+    Hi, {{userName}}
+  </ion-list-header>
+  <ion-list>
+    <button ion-item (click)="dev_switchAccount()">
+      Switch account
+    </button>
+    <!--<button class="danger" ion-item (click)="dev_delAccount()">-->
+      <!--Delete my account-->
+    <!--</button>-->
+  </ion-list>
+
+  <ion-list-header>
+    Dev Tools
+  </ion-list-header>
+  <ion-list>
+    <!-- <button ion-item (click)="dev_testNotification()">
+      Test Notification
+    </button> -->
+    <button ion-item (click)="dev_testGPS()">
+      Test GPS
+    </button>
+    <button ion-item (click)="dev_fakeGeolocation()">
+      Fake GPS
+    </button>
+    <button class="danger" ion-item (click)="dev_initLocations()">
+      Init location database
+    </button>
+  </ion-list>
+
+  <ion-list-header>
+    Reminder
+  </ion-list-header>
+  <ion-list>
+    <button ion-item (click)="dev_testNotification()">
+      Test Notification
+    </button>
+    <ion-item>
+      <ion-label>Remind me at:
+      </ion-label>
+      <ion-datetime displayFormat="hh:mm A" pickerFormat="hh mm A" [(ngModel)]="timeText" (ionChange)="timeChange($event)"></ion-datetime>
+    </ion-item>
+
+    <div class="button-bar" padding>
+      <ion-row>
+          <ion-col>
+              <button ion-button color="primary" block outline  (click)="onCancel()">CANCEL</button>
+          </ion-col>
+          <ion-col>
+          <button ion-button color="primary" block (click)="onEnable() ">ENABLE</button>
+        </ion-col>
+      </ion-row>
+    </div>
+
+  </ion-list>
+
+
+
+</ion-content>

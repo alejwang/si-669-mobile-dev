@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      My Diary
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-card *ngFor="let entry of entries" >
+        <ion-card-content>
+          <h2 class="entry-title">{{entry.title}}</h2>
+          <p class="entry-text">{{entry.text}}</p>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col><p class="entry-time">{{entry.timestamp | date:'short'}}</p></ion-col>
+              <ion-col><button ion-button clear icon-only item-end (click)="deleteEntry(entry.id)">
+                <ion-icon class="del-btn" name="trash"></ion-icon>
+              </button>
+                <button class="edit-btn" ion-button size="small" item-end (click)="editEntry(entry.id)">EDIT</button></ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+    </ion-card>
+  </ion-list>
+  <ion-fab right bottom>
+    <button ion-fab class="add-btn" icon-only (click)="addEntry()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

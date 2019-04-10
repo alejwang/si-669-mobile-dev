@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      QuickList
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding fullscreen>
+  <ion-text *ngIf="checklists.length === 0">
+    You must be new here. Create a list and get to work.
+  </ion-text>
+  <ion-list lines="full">
+    <ion-item *ngIf="checklists.length > 1">
+      <ion-select [(ngModel)]="sortByLists" (ionChange)="sortChange()" interface="popover">
+        <ion-select-option value="descending">Descending</ion-select-option>
+        <ion-select-option value="ascending">Ascending</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngFor="let checklist of checklists">
+      <ion-label (click)="goToChecklist(checklist.id)" color="primary">
+        {{checklist.name}} ({{checklist.count_completed}}/{{checklist.count_all}})
+      </ion-label>
+      <ion-icon name="trash" slot="end" (click)="deleteList(checklist.id)"></ion-icon>
+    </ion-item>
+  </ion-list>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-input [(ngModel)]="newListName" placeholder="New List"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="createNewList()">Add New List</ion-button>
+</ion-content>
+
+<!--<router-outlet></router-outlet>-->

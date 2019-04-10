@@ -1,0 +1,10 @@
+$main-color: #00C5CD;
+
+page-entry-detail {
+  ion-content{
+    background-image: url("../../assets/imgs/just-waves.png");
+  }
+  .save-btn {
+    background-color: $main-color;
+  }
+}

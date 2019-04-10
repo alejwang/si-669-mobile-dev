@@ -1,0 +1,46 @@
+page-current {
+    ion-content{
+        background-image: url("../assets/imgs/back-d.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        height: 100%;
+    }
+
+    .mood-img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30%;
+        width: 70%;
+    }
+
+    .mood-text{
+        text-align: center;
+    }
+    
+////style empty state
+    .empty-title {
+        text-align: center;
+        margin-top: 50%;
+        color:  #222;
+        padding-top: 5em;
+      }
+
+      .empty-sub {
+        text-align: center;
+        margin-top: 1em;
+        color: #222;
+        font-weight:400;
+        font-style: italic;
+      }
+
+
+      .get-started {
+        color: white;
+        font-weight: 500;
+        margin-top: 3em;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+}

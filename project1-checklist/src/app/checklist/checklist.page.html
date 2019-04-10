@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button (click)="goBackHome()" defaultHref="/home"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{listName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding fullscreen>
+
+  <ion-text *ngIf="todos.length === 0">
+    There's nothing in this list! Add something here!
+  </ion-text>
+  <ion-list lines="full">
+      <ion-item *ngIf="todos.length !== 0">
+          <ion-label>Hide completed?</ion-label>
+          <ion-toggle [(ngModel)]="hideCompleted" (ionChange)="hideCompleteTodos()" slot="end"></ion-toggle>
+      </ion-item>
+      <ion-button *ngIf="todos.length > 1" (click)="sortTodosByAlpha()"> Sort alphabetically </ion-button>
+      <ion-button *ngIf="todos.length > 1" (click)="sortTodosByPriority()"> Sort by Priority </ion-button>
+    <ion-item-group *ngFor="let todo of todos" [class]="getClassForCompleteMark(todo.completeMark)">
+        <ion-item *ngIf="!hideCompleted || (hideCompleted && !todo.completeMark)">
+            <ion-icon *ngIf="!todo.completeMark" name="checkmark-circle-outline" slot="start" (click)="completeTodo(todo.id)"></ion-icon>
+            <ion-icon *ngIf="todo.completeMark" name="checkmark-circle" slot="start" (click)="completeTodo(todo.id)"></ion-icon>
+            <ion-label *ngIf="currentEditing !== todo.id">{{todo.name}}</ion-label>
+            <ion-input *ngIf="currentEditing === todo.id" [(ngModel)]="editingName" autofocus=true></ion-input>
+            <ion-icon *ngIf="currentEditing !== todo.id" name="create" slot="end" (click)="editMode(todo.id)"></ion-icon>
+            <ion-icon *ngIf="currentEditing === todo.id" name="save" slot="end" (click)="saveChanges(todo.id)"></ion-icon>
+            <ion-icon *ngIf="currentEditing === todo.id" name="trash" slot="end" (click)="deleteTodo(todo.id)"></ion-icon>
+            <ion-icon *ngIf="currentEditing === todo.id"name="close" slot="end" (click)="editMode(-1)"></ion-icon>
+        </ion-item>
+        <ion-item *ngIf="!hideCompleted || (hideCompleted && !todo.completeMark)">
+            <ion-select (ionChange)="changePriority($event, todo.id)">
+                <ion-select-option value="1" [selected]="todo.priorityLevel === 1">🤨</ion-select-option>
+                <ion-select-option value="2" [selected]="todo.priorityLevel === 2">😒</ion-select-option>
+                <ion-select-option value="3" [selected]="todo.priorityLevel === 3">😩</ion-select-option>
+            </ion-select>
+        </ion-item>
+    </ion-item-group>
+  </ion-list>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-text>Add new </ion-text>
+      <ion-input [(ngModel)]="newTodoName" placeholder=" New Todo"></ion-input>
+      <ion-icon name="save" (click)="createNewTodo()"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<!--<router-outlet></router-outlet>-->

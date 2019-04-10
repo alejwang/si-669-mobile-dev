@@ -1,0 +1,21 @@
+page-entry-detail {
+    ion-content{
+    background-image: url("../assets/imgs/back-d.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 100%;
+    }
+
+    .select-mood {
+      border-color: rgba(0, 0, 0, 0);
+      background-color: rgba(0, 0, 0, 0);
+      color: white;
+      padding: 10px;
+      //transform: translate(-50%, -50%);
+      //-ms-transform: translate(-50%, -50%);
+    }
+    // .select-mood {
+    //   border: 3px dotted #24df67;
+    //   border-radius: 80px;
+    // }
+}

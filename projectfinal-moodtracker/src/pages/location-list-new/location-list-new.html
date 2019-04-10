@@ -1,0 +1,23 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Create a place</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Name</ion-label>
+      <ion-input type="text" placeholder="e.g. Mark Museum, SI669 Class, My bed..." [(ngModel)]="placeName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Address</ion-label>
+      <ion-input type="text" placeholder="e.g. In Rackham Auditorium" [(ngModel)]="placeAddress"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button round outline (click)="createPlace()">Create</button>
+</ion-content>

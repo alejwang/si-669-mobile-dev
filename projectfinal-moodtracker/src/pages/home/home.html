@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      History
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding class="card-list">
+
+    <div *ngIf="checkStatus()">
+        <h2 class="empty-title">No Mood Record</h2>
+        <h5 class="empty-sub">Click the button below to record your current mood</h5>
+        <br>
+        <br>
+        <button ion-button round color="secondary" class="get-started" (click)="addNew()">
+    ADD</button>
+    </div>
+
+  <div *ngIf="!checkStatus()">
+
+    <br><br>
+
+    <ion-list no-lines *ngFor="let entry of entries">
+
+      <ion-item-sliding #item>
+          <ion-item class="entry-card">
+              <img class="card-img" style="width: 120px; height: 120px; " [src]="entry.mood.image" />
+              <div class="card-title">{{entry.timestamp}}</div>
+              <div class="card-subtitle" text-wrap>{{entry.location}}</div>
+          </ion-item>
+
+          <ion-item-options side="left">
+              <button ion-button expandable color="primary" (click)="editEntry(entry.id)">Edit</button>
+            </ion-item-options>
+          <ion-item-options side="right">
+            <button ion-button expandable color="danger" (click)="deleteEntry(entry.id)">Delete</button>
+          </ion-item-options>
+    </ion-item-sliding>
+
+    </ion-list>
+
+
+</div>
+
+</ion-content>

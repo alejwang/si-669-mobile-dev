@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title *ngIf="currentLocation">Create a Mood Record</ion-title>
+    <ion-title *ngIf="currentLocationAddress">Mood Record</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list no-lines>
+      <!-- <ion-icon name="calendar"  color="primary"> {{currentTime | date : 'short'}}</ion-icon>  -->
+
+      <h5 style="text-align:center;" *ngIf="currentLocation">Where are you now?</h5>
+      <h5 style="text-align:center;" *ngIf="currentLocationAddress">Where was you?</h5>
+      <!--<ion-item>-->
+        <!--<ion-input type="text" placeholder="Your Location" [(ngModel)]="entry.location"></ion-input>-->
+      <!--</ion-item>-->
+      <ion-item *ngIf="currentLocationAddress">{{currentLocationAddress}}</ion-item>
+      <button ion-item (click)="chooseCurrentLocation()" *ngIf="currentLocation">{{currentLocation.name}}</button>
+      <!--<button ion-item (click)="chooseCurrentLocation()" *ngIf="!currentLocation">Finding your location...</button>-->
+
+
+    <h5 style="text-align:center;" *ngIf="currentLocationAddress">How was your mood?</h5>
+    <h5 style="text-align:center;" *ngIf="currentLocation">How is your mood?</h5>
+
+    <ion-row class="select">
+      <ion-col class="select" col-12 col-sm-9 col-md-6 col-lg-4 col-xl-3>
+        <button class="select-mood" id="happy" (click)="changeMood('happy')">
+          <img *ngIf="!happyselected" id="happy" style="width: 110px; height: 110px; " src="./assets/imgs/Happy.png">
+          <img *ngIf="happyselected" id="happy" style="width: 110px; height: 110px; " src="./assets/imgs/happy_selected.png">
+        </button>
+        <button class="select-mood" id="angry" (click)="changeMood('angry')">
+          <img *ngIf="!angryselected" id="angry" style="width: 110px; height: 110px; " src="./assets/imgs/Angry.png" >
+          <img *ngIf="angryselected" id="angry" style="width: 110px; height: 110px; " src="./assets/imgs/angry_selected.png" >
+        </button>
+        <button class="select-mood" id="sad"  (click)="changeMood('sad')">
+          <img *ngIf="!sadselected" id="sad" style="width: 110px; height: 110px;  " src="./assets/imgs/Sad.png">
+          <img *ngIf="sadselected" id="sad" style="width: 110px; height: 110px;  " src="./assets/imgs/sad_selected.png">
+        </button>
+        <button class="select-mood" id="okay"  (click)="changeMood('okay')">
+          <img *ngIf="!okayselected" id="okay" style="width: 110px; height: 110px; " src="./assets/imgs/Okay.png">
+          <img *ngIf="okayselected" id="okay" style="width: 110px; height: 110px; " src="./assets/imgs/okay_selected.png">
+        </button>
+      </ion-col>
+    </ion-row>
+
+
+    <h5 style="text-align:center;">Add some notes?</h5>
+    <ion-item>
+      <ion-input type="text" placeholder="Today I..." [(ngModel)]="entry.text"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <!-- <ion-list no-lines>
+    <ion-item> -->
+      <button ion-button outline item-end (click)="cancel()">Cancel </button>
+      <button ion-button item-end (click)="saveEntry()">Save</button>
+    <!-- </ion-item>
+  </ion-list> -->
+
+
+
+</ion-content>

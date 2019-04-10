@@ -1,0 +1,31 @@
+<ion-content padding>
+
+    <div *ngIf="checkStatus()">
+        <h2 class="empty-title">Welcome to Mood Tracker!</h2>
+        <h4 class="empty-sub" >Where mood matters</h4>
+        <br>
+        <br>
+          <button ion-button round color="secondary" class="get-started" (click)="addNew()">
+        START
+        </button>
+    </div>
+
+
+
+    <div *ngIf="!checkStatus()">
+
+         <!-- <h5>{{entry.location}}</h5> -->
+          <!-- <p>{{entry.timestamp | date: "short"}}</p> -->
+
+          <img style="width: 200px; height: 200px; " class="mood-img" item-start [src]="entry.mood.image"  />
+
+           <h2 class="mood-text"> I'm {{entry.mood.type}}...</h2>
+
+          <ion-fab right bottom>
+            <button ion-fab color="primary" icon-only (click)="addNew()"><ion-icon name="add"></ion-icon></button>
+        </ion-fab>
+
+
+</div>
+
+  </ion-content>

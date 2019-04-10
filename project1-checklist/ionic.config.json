@@ -1,0 +1,7 @@
+{
+  "name": "si669-mini-project-1",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
